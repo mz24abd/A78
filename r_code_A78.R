@@ -11,9 +11,12 @@ install.packages("ggplot2")
 library(ggplot2)
 
 
-# Clean the data
-data$Median_Household_Income <- as.numeric(data$Median.Household.Income)
-data$Poverty_Percent <- as.numeric(data$Poverty.Percent..All.Ages)
+# Inspect column names to verify
+colnames(data)
+
+# Clean the data (update these column names if needed)
+data$Median_Household_Income <- as.numeric(data$Median.Household.Income) # Adjust column name
+data$Poverty_Percent <- as.numeric(data$Unnamed..6) # Adjust column name based on your dataset
 clean_data <- na.omit(data[, c("Median_Household_Income", "Poverty_Percent")])
 
 # Create the scatterplot with regression line
