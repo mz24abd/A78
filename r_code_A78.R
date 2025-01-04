@@ -3,14 +3,49 @@ head(data)        # View the first few rows
 str(data)         # View the structure of the dataset
 summary(data)     # View summary statistics
 
+# To extract all column headers and the first two rows of our dataset in R
+
+# Get column headers
+col_headers <- colnames(data)
+print("Column Headers:")
+print(col_headers)
+
+# Get the first two rows
+first_two_rows <- data[1:2, ]
+print("First Two Rows:")
+print(first_two_rows)
+
+# end
+# To extract with tab separated dataset in R
+
+# Get column headers
+col_headers <- colnames(data)
+cat("Column Headers (Tab-Separated):\n")
+cat(paste(col_headers, collapse = "\t"), "\n\n")
+
+# Get the first two rows
+first_two_rows <- data[1:2, ]
+cat("First Two Rows (Tab-Separated):\n")
+apply(first_two_rows, 1, function(row) cat(paste(row, collapse = "\t"), "\n"))
+
+# end
+
+
+
+
+
+
+
+
+
+
+#report work
 
 #question 3- visualisation
 # Load required packages 
 install.packages("ggplot2")
 # Load necessary libraries
 library(ggplot2)
-
-
 # Inspect column names to verify
 colnames(data)
 
