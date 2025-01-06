@@ -30,38 +30,64 @@ apply(first_two_rows, 1, function(row) cat(paste(row, collapse = "\t"), "\n"))
 
 # end
 
-
-
-
-
-
-
-
-
-
 #report work
-
 #question 3- visualisation
 # Load required packages 
 install.packages("ggplot2")
 # Load necessary libraries
 library(ggplot2)
-# Inspect column names to verify
+
+
+
+#question 4 analysis
+
+# Install dplyr 
+install.packages("dplyr")
+
+# Load dplyr
+library(dplyr)
+data <- data[, !is.na(colnames(data))]
 colnames(data)
 
-# Clean the data (update these column names if needed)
-data$Median_Household_Income <- as.numeric(data$Median.Household.Income) # Adjust column name
-data$Poverty_Percent <- as.numeric(data$Unnamed..6) # Adjust column name based on your dataset
-clean_data <- na.omit(data[, c("Median_Household_Income", "Poverty_Percent")])
+# Step 2: Fix column names
+colnames(data) <- make.names(colnames(data), unique = TRUE)
+colnames(data)
+cat("Cleaned column names:\n")
+print(colnames(data))
 
-# Create the scatterplot with regression line
-ggplot(clean_data, aes(x = Median_Household_Income, y = Poverty_Percent)) +
-  geom_point(color = "blue", alpha = 0.6) +
+# Step 3: Manually Rename Columns (if needed)
+# Adjust column names based on your dataset structure
+colnames(data) <- c("State_FIPS", "Postal_Code", "State_Name", 
+                    "Poverty_All_Ages", "CI_Lower_All_Ages", "CI_Upper_All_Ages",
+                    "Poverty_Percent_All_Ages", "CI_Lower_Percent", "CI_Upper_Percent",
+                    "Poverty_0_17", "CI_Lower_0_17", "CI_Upper_0_17",
+                    "Poverty_Percent_0_17", "CI_Lower_Percent_0_17", "CI_Upper_Percent_0_17",
+                    "Median_Household_Income", "CI_Lower_Income", "CI_Upper_Income",
+                    "Poverty_0_4", "CI_Lower_0_4", "CI_Upper_0_4",
+                    "Poverty_Percent_0_4", "CI_Lower_Percent_0_4", "CI_Upper_Percent_0_4")
+
+
+data <- data %>%
+  mutate(across(c(Poverty_All_Ages, Poverty_Percent_All_Ages, 
+                  Poverty_0_17, Poverty_Percent_0_17, 
+                  Median_Household_Income, Poverty_0_4, Poverty_Percent_0_4), as.numeric))
+
+
+# Step 5: Perform Correlation Test
+# Test relationship between Poverty Percent (All Ages) and Median Household Income
+correlation_test <- cor.test(data$Poverty_Percent_All_Ages, data$Median_Household_Income, use = "complete.obs")
+
+# Display correlation results
+cat("\nCorrelation Test Results:\n")
+print(correlation_test)
+
+
+# Step 6: Visualize the Relationship
+ggplot(data, aes(x = Median_Household_Income, y = Poverty_Percent_All_Ages)) +
+  geom_point(color = "blue") +
   geom_smooth(method = "lm", color = "red", se = FALSE) +
-  labs(
-    title = "Relationship Between Median Household Income and Poverty Percent",
-    x = "Median Household Income (USD)",
-    y = "Poverty Percent (%)",
-    caption = "Data source: est13us.csv"
-  ) +
+  labs(title = "Relationship between Poverty Percentage and Median Household Income",
+       x = "Median Household Income",
+       y = "Poverty Percentage (All Ages)") +
   theme_minimal()
+ggsave("appropriate_plot.png", plot = plot, width = 8, height = 6)
