@@ -1,0 +1,13 @@
+[1] "Correlation Test Results:"
+
+	Pearson's product-moment correlation
+
+data:  data$Poverty.Percent and data$Median.Household.Income
+t = -0.16818, df = 50, p-value = 0.8671
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.2947655  0.2507495
+sample estimates:
+        cor 
+-0.02377795 
+

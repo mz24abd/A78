@@ -1,65 +1,57 @@
-# Install required packages section
+# Install required packages
 install.packages("ggplot2")
 install.packages("dplyr")
-#end section
 
-# Load required packages section
-library(ggplot2)
-library(dplyr)
-#end section
+# Load necessary libraries
+library(dplyr)    # For data manipulation
+library(ggplot2)  # For visualization
 
-#Loading Dataset section
-data <- read.csv("dataset/est13us.csv") #Load the Dataset into RStudio
-head(data)        # View the first few rows
-str(data)         # View the structure of the dataset
-summary(data)     # View summary statistics
-#end section
+# Load the dataset
+data <- read.csv("dataset/est13us.csv")
 
-# Extract all column headers and the first two rows section
-col_headers <- colnames(data)# Get column headers
-print("Column Headers:")# Output message
-print(col_headers)# Print column headers
-first_two_rows <- data[1:2, ]# Get the first two rows
-print("First Two Rows:")# Output message
-print(first_two_rows) # Print first two rows
-# end section
+# Clean column names to remove invalid characters and make them easier to work with
+colnames(data) <- make.names(colnames(data), unique = TRUE)
 
-# Extract with tab separated sectoin
-cat(paste(col_headers, collapse = "\t"), "\n\n")# Get the data/columns with tab separated
-first_two_rows <- data[1:2, ]# Get the first two rows
-cat("First Two Rows (Tab-Separated):\n")# Output message
-apply(first_two_rows, 1, function(row) cat(paste(row, collapse = "\t"), "\n"))
-# end section
+# Inspect cleaned column names
+print(colnames(data))  # Ensure the required columns exist
 
-# Analysis and visualization section
-data <- data[, !is.na(colnames(data))]# Clean data from all column names 'NA'
-cat("Cleaned column names:\n")# Output message
-print(colnames(data))# Print columns names
-# Adjust column names based on dataset structure
-colnames(data) <- c("State_FIPS", "Postal_Code", "State_Name", 
-                    "Poverty_All_Ages", "CI_Lower_All_Ages", "CI_Upper_All_Ages",
-                    "Poverty_Percent_All_Ages", "CI_Lower_Percent", "CI_Upper_Percent",
-                    "Poverty_0_17", "CI_Lower_0_17", "CI_Upper_0_17",
-                    "Poverty_Percent_0_17", "CI_Lower_Percent_0_17", "CI_Upper_Percent_0_17",
-                    "Median_Household_Income", "CI_Lower_Income", "CI_Upper_Income",
-                    "Poverty_0_4", "CI_Lower_0_4", "CI_Upper_0_4",
-                    "Poverty_Percent_0_4", "CI_Lower_Percent_0_4", "CI_Upper_Percent_0_4")
-# Transform columns data as numeric
-data <- data %>% mutate(across(c(Poverty_All_Ages, Poverty_Percent_All_Ages, 
-                  Poverty_0_17, Poverty_Percent_0_17, 
-                  Median_Household_Income, Poverty_0_4, Poverty_Percent_0_4), as.numeric))
-# Test relationship between Poverty Percent (All Ages) and Median Household Income
-correlation_test <- cor.test(data$Poverty_Percent_All_Ages, data$Median_Household_Income, use = "complete.obs")
-cat("\nCorrelation Test Results:\n")# Output message
-print(correlation_test)# Display correlation results
-# Visualize the Relationship
-ggplot(data, aes(x = Median_Household_Income, y = Poverty_Percent_All_Ages)) +
-  geom_point(color = "blue") +
-  geom_smooth(method = "lm", color = "red", se = FALSE) +
-  labs(title = "Relationship between Poverty Percentage and Median Household Income",
-       x = "Median Household Income",
-       y = "Poverty Percentage (All Ages)") +
-  theme_minimal()
-# To save the Plot picture into project
-ggsave("appropriate_plot.png", plot = plot, width = 8, height = 6)
-#end section
+# Select and rename relevant columns for analysis
+# Replace "All.Ages" with the correct column name if needed
+data <- data %>%
+  select(Poverty.Percent = All.Ages, Median.Household.Income) %>%
+  mutate(
+    Poverty.Percent = as.numeric(Poverty.Percent),            # Convert to numeric
+    Median.Household.Income = as.numeric(Median.Household.Income)  # Convert to numeric
+  )
+
+# Remove rows with missing or invalid data
+data <- na.omit(data)
+
+# Perform Pearson correlation test
+correlation_test <- cor.test(data$Poverty.Percent, data$Median.Household.Income, method = "pearson")
+
+# Print correlation test results to the console and log file
+print(correlation_test)
+
+# Save correlation results to a log file
+sink("Rscript.log")  # Redirect output to log file
+print("Correlation Test Results:")
+print(correlation_test)
+sink()  # End redirection
+
+# Create scatter plot with regression line
+plot <- ggplot(data, aes(x = Median.Household.Income, y = Poverty.Percent)) +
+  geom_point(color = "blue") +                        # Data points
+  geom_smooth(method = "lm", se = TRUE, color = "red") +  # Regression line
+  labs(
+    title = "Relationship Between Median Household Income and Poverty Percent",
+    x = "Median Household Income",
+    y = "Poverty Percent (All Ages)"
+  ) +
+  theme_minimal()  # Clean theme for better visuals
+
+# Display the plot
+print(plot)
+
+# Save the plot to a file
+ggsave("Income_vs_Poverty_Plot.png", plot = plot)
