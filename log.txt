@@ -1,0 +1,164 @@
+commit 62874f76959466e5c371f01778979158fff73669
+Author: Muhammad Usman <mu24aan@herts.ac.uk>
+Date:   Mon Jan 6 08:44:42 2025 -0800
+
+    R code used for analysis and visualisation updated
+
+commit 7cb838d7f0368f354a9977f44cc74ba9fc2efed6
+Author: Muhammad Usman <mu24aan@herts.ac.uk>
+Date:   Mon Jan 6 07:50:17 2025 -0800
+
+    R code used for analysis and visualisation
+
+commit c56baf5c51a5ab73da8fed39180f82c70bbf69ef
+Author: Mirza Taimur Zafar <mz24abd@herts.ac.uk>
+Date:   Mon Jan 6 06:59:02 2025 +0000
+
+    Section 1,2,3,4,5 and 6 are Completed According to the headings
+
+commit 8113efde7789aa5f89eed94c81530e36aaf274bf
+Author: Mirza Taimur Zafar <mz24abd@herts.ac.uk>
+Date:   Mon Jan 6 06:40:47 2025 +0000
+
+    Completed Table of Content With Proper Refernece and Page Numbers
+
+commit fb442371bc06e17cd82c22b72629cf888f9fb36e
+Author: Muhammad Usman <mu24aan@herts.ac.uk>
+Date:   Sun Jan 5 22:11:57 2025 -0800
+
+    visualization and evaluation section raw content
+
+commit 6abfb9eb1c4d1559072448843be848508bf30b97
+Author: Muhammad Usman <mu24aan@herts.ac.uk>
+Date:   Sun Jan 5 22:10:03 2025 -0800
+
+    complete visuallization and correlation r code
+
+commit 9c9c3bbb8d5fc2b6547da404544f1b2b996dfb04
+Merge: 4a21848 2de0f20
+Author: Mirza Taimur Zafar <mz24abd@herts.ac.uk>
+Date:   Sat Jan 4 16:25:00 2025 +0000
+
+    Working on Table of Content
+
+commit 4a218488d13da10f2e9215879155298dd223cd79
+Author: Mirza Taimur Zafar <mz24abd@herts.ac.uk>
+Date:   Sat Jan 4 16:23:24 2025 +0000
+
+    Working on Table of Content
+
+commit 2de0f2045985e1f20362cdb5a780f51d195ae5dc
+Merge: 0ca8637 ce91f96
+Author: Muhammad Usman <mu24aan@herts.ac.uk>
+Date:   Sat Jan 4 08:02:11 2025 -0800
+
+    r code updation
+
+commit 0ca86375cce8e6ba79712757db986a5b293cd175
+Author: Muhammad Usman <mu24aan@herts.ac.uk>
+Date:   Sat Jan 4 07:58:37 2025 -0800
+
+    R code updation
+
+commit ce91f96373be1a8f155378fd91bb0a3f3bdf45bd
+Author: Mirza Taimur Zafar <mz24abd@herts.ac.uk>
+Date:   Sat Jan 4 15:19:17 2025 +0000
+
+    Check the document and update the changes
+
+commit e3ae73d16cf4524ad0d4141f91b590a7a26a160c
+Author: Muhammad Usman <mu24aan@herts.ac.uk>
+Date:   Tue Dec 31 07:45:05 2024 -0800
+
+    updated report 3.2 and 3.3 & please align according to formate.
+
+commit d8b8c7544e8f8b9ddcf651e8a91e001aedf27c58
+Merge: 2b3e5e1 568384c
+Author: Mirza Taimur Zafar <mz24abd@herts.ac.uk>
+Date:   Mon Dec 30 16:35:55 2024 +0000
+
+    Updated Report File Section 3.1 Visualization
+
+commit 2b3e5e1fa96bbac1a4c40503b4a54d87a6277fc0
+Author: Mirza Taimur Zafar <mz24abd@herts.ac.uk>
+Date:   Mon Dec 30 16:32:42 2024 +0000
+
+    Updated Report File Section 3.1 Visualization
+
+commit 568384cdf1769b0b1ce6b5b88d5debc2eaad3d3d
+Author: Muhammad Usman <mu24aan@herts.ac.uk>
+Date:   Mon Dec 30 08:25:02 2024 -0800
+
+    Appropriate plot for the RQ output of an R script including r code and png file
+
+commit 5d554a2e0467d49791617a9828699c22a5703f4d
+Author: Muhammad Usman <mu24aan@herts.ac.uk>
+Date:   Mon Dec 30 08:17:44 2024 -0800
+
+    My First
+
+commit fd214794552c417745d2f8401f7857fa5db8d90b
+Author: Mirza Taimur Zafar <mz24abd@herts.ac.uk>
+Date:   Mon Dec 30 15:47:59 2024 +0000
+
+    Update Section Introduction
+
+commit 4f376507f57371c4c112cc07abaf32fbcf8e9664
+Author: Muhammad Usman <mu24aan@herts.ac.uk>
+Date:   Mon Dec 30 07:37:23 2024 -0800
+
+    remove extra files
+
+commit a6e85afb1abea61056620d4de9bd4836370d10ce
+Author: Muhammad Usman <mu24aan@herts.ac.uk>
+Date:   Mon Dec 30 07:36:38 2024 -0800
+
+    load dataset and check dataset columns and rows in RStudio using rcode
+
+commit ebb0af035167eb9efba085318830ad62d39ac5d8
+Author: Muhammad Usman <mu24aan@herts.ac.uk>
+Date:   Mon Dec 30 07:27:16 2024 -0800
+
+    loadin dataset
+
+commit 82b168c54920f36c22266b94bfbb8c0a066c0a10
+Author: Muhammad Usman <mu24aan@herts.ac.uk>
+Date:   Mon Dec 30 07:24:43 2024 -0800
+
+    deleting extra files
+
+commit 778dd8b4871e546778042cba57b13645bfc3f623
+Author: Muhammad Usman <mu24aan@herts.ac.uk>
+Date:   Mon Dec 30 07:22:38 2024 -0800
+
+    checking checking
+
+commit 4d393f1b8caace79cbe89015e4f85144446be041
+Author: Muhammad Usman <mu24aan@herts.ac.uk>
+Date:   Mon Dec 30 07:07:12 2024 -0800
+
+    Accessing Project in RStudio
+
+commit 118658bf511d931e9cf7c1c9aa88712ca6bea623
+Author: Muhammad Usman <mu24aan@herts.ac.uk>
+Date:   Mon Dec 30 06:50:14 2024 -0800
+
+    My First
+
+commit 9a0cb749c12e148e65f1cc0d4a8b2e81bef8d066
+Author: Mirza Taimur Zafar <mz24abd@herts.ac.uk>
+Date:   Mon Dec 30 04:53:06 2024 +0000
+
+    accessing project folder
+
+commit 65422949f0abfb45a7c62b5621cff60b3f921380
+Author: Muhammad Usman <mu24aan@herts.ac.uk>
+Date:   Mon Dec 30 04:46:51 2024 +0000
+
+    a78 txt file changings
+
+commit 47296b9f5c27e6b70f5cd9c1fd4bf0bbba1afbd7
+Author: Muhammad Usman <mu24aan@herts.ac.uk>
+Date:   Mon Dec 30 04:42:38 2024 +0000
+
+    a78 project creation
