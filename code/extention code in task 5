@@ -1,0 +1,30 @@
+Copy code
+# Load necessary libraries
+library(ggplot2)
+library(dplyr)
+
+# Load the dataset
+data <- read.csv("est13us.csv")
+
+# View the structure of the dataset
+str(data)
+
+# Hypothesis Testing: Compute Pearson correlation
+cor_test <- cor.test(data$Median_Household_Income, data$Poverty_Percent_All_Ages)
+
+# Output correlation results
+print(cor_test)
+
+# Scatterplot with regression line
+ggplot(data, aes(x = Median_Household_Income, y = Poverty_Percent_All_Ages)) +
+  geom_point(color = "blue", size = 3) +
+  geom_smooth(method = "lm", color = "red", se = TRUE) +
+  labs(
+    title = "Correlation Between Median Household Income and Poverty Percentage",
+    x = "Median Household Income (USD)",
+    y = "Poverty Percentage (All Ages)"
+  ) +
+  theme_minimal()
+
+# Save plot to file
+ggsave("scatterplot_correlation.png")
